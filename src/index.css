@@ -1,0 +1,27 @@
+@import 'tailwindcss';
+
+@theme {
+  --color-amber-glow: #f59e0b;
+}
+
+html,
+body,
+#root {
+  min-height: 100%;
+}
+
+body {
+  margin: 0;
+  background-color: #121212;
+  color: #e5e5e5;
+  font-family: system-ui, 'Segoe UI', Roboto, sans-serif;
+  -webkit-font-smoothing: antialiased;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+::selection {
+  background-color: rgba(245, 158, 11, 0.35);
+}
