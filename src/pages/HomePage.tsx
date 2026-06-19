@@ -3,7 +3,7 @@ import { useNavigate } from 'react-router-dom';
 import SearchInput from '../components/SearchInput';
 import CategoryCard from '../components/CategoryCard';
 import RecipeListItem from '../components/RecipeListItem';
-import { categories, getCategoryById, searchRecipes } from '../data/recipesData';
+import { categories, searchRecipes } from '../data/recipesData';
 import { useAuth } from '../auth/AuthContext';
 
 export default function HomePage() {
@@ -46,12 +46,7 @@ export default function HomePage() {
           ) : (
             <div className="grid grid-cols-1 gap-3 sm:grid-cols-2 lg:grid-cols-3">
               {results.map((recipe) => (
-                <RecipeListItem
-                  key={recipe.id}
-                  recipe={recipe}
-                  query={query}
-                  categoryName={getCategoryById(recipe.categoryId)?.name}
-                />
+                <RecipeListItem key={recipe.id} recipe={recipe} query={query} categoryName={recipe.categoryName} />
               ))}
             </div>
           )}

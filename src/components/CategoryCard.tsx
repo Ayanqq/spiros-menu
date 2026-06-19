@@ -1,8 +1,8 @@
 import { Link } from 'react-router-dom';
-import type { CategoryWithCount } from '../data/recipesData';
+import type { Category } from '../types/recipes';
 
 interface CategoryCardProps {
-  category: CategoryWithCount;
+  category: Category;
 }
 
 function pluralizeRecipes(count: number): string {

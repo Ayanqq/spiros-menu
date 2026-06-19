@@ -3,14 +3,14 @@ import { Link, useParams } from 'react-router-dom';
 import SearchInput from '../components/SearchInput';
 import RecipeListItem from '../components/RecipeListItem';
 import BackLink from '../components/BackLink';
-import { getCategoryById, getRecipesByCategoryId, searchRecipes } from '../data/recipesData';
+import { getCategoryById, getRecipesByCategory, searchRecipes } from '../data/recipesData';
 
 export default function CategoryPage() {
   const { id } = useParams<{ id: string }>();
   const [query, setQuery] = useState('');
 
   const category = id ? getCategoryById(id) : undefined;
-  const categoryRecipes = useMemo(() => (id ? getRecipesByCategoryId(id) : []), [id]);
+  const categoryRecipes = useMemo(() => (id ? getRecipesByCategory(id) : []), [id]);
 
   const visibleRecipes = useMemo(() => {
     const trimmed = query.trim();

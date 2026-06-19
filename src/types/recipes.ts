@@ -1,32 +1,44 @@
-export interface ChecklistItem {
-  id: string;
+export interface GalleryImage {
+  url: string;
+  width?: number;
+  height?: number;
+}
+
+export interface Ingredient {
   name: string;
-  checked: boolean;
+  amount: string;
+}
+
+export interface Step {
+  order: number;
+  text: string;
+}
+
+export interface ChecklistItem {
+  text?: string;
+  name?: string;
 }
 
 export interface Checklist {
-  id: string;
-  name: string;
-  cardId: string;
-  items: ChecklistItem[];
+  name?: string;
+  items?: (string | ChecklistItem)[];
 }
 
 export interface Recipe {
   id: string;
   title: string;
-  description: string;
   categoryId: string;
-  checklistIds: string[];
+  categoryName: string;
+  gallery: GalleryImage[];
+  ingredients: Ingredient[];
+  steps: Step[];
+  yield: string;
+  notes: string;
+  checklists: Checklist[];
 }
 
 export interface Category {
   id: string;
   name: string;
-  recipes: Recipe[];
-}
-
-export interface RecipesDatabase {
-  categories: Category[];
-  recipes: Recipe[];
-  checklists: Checklist[];
+  recipeCount: number;
 }
